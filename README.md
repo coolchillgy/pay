@@ -155,8 +155,7 @@ https://your-backend.railway.app/api/webhook/{API_KEY}
 ## 🔐 **기본 계정 정보**
 
 ### 관리자 계정
-- **ID**: fjrzl7979
-- **PW**: 79797979
+
 
 ### API 테스트
 ```bash
