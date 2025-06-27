@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3B82F6" />
+    
+    <!-- SEO 최적화 -->
+    <meta name="description" content="Pay시스템 v4.0 Enterprise - 실시간 정산 관리 시스템. 문자자동전달앱 연동으로 자동화된 거래 추적 및 정산을 제공합니다." />
+    <meta name="keywords" content="정산시스템, 실시간정산, 문자자동전달, SMS파싱, 거래추적, 업체관리" />
+    <meta name="author" content="coezero" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pay시스템 v4.0 Enterprise" />
+    <meta property="og:description" content="실시간 정산 관리 시스템" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- 폰트 프리로드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- 보안 헤더 -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <title>Pay시스템 v4.0 Enterprise</title>
+    
+    <!-- 로딩 스타일 -->
+    <style>
+      /* 초기 로딩 화면 */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: white;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      .loading-logo {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        animation: pulse 2s infinite;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      .loading-text {
+        margin-top: 1rem;
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      
+      /* 로딩 완료 시 숨김 */
+      .loading-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h2>JavaScript가 필요합니다</h2>
+        <p>Pay시스템을 사용하려면 브라우저에서 JavaScript를 활성화해주세요.</p>
+      </div>
+    </noscript>
+    
+    <!-- 초기 로딩 화면 -->
+    <div id="loading-screen">
+      <div class="loading-logo">Pay시스템</div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">시스템을 불러오는 중...</div>
+    </div>
+    
+    <!-- React 앱이 마운트될 루트 엘리먼트 -->
+    <div id="root"></div>
+    
+    <!-- 로딩 화면 제거 스크립트 -->
+    <script>
+      // DOM 로드 완료 시 로딩 화면 제거
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.classList.add('loading-hidden');
+            setTimeout(function() {
+              loadingScreen.remove();
+            }, 500);
+          }
+        }, 1000); // 1초 후 로딩 화면 제거
+      });
+    </script>
+  </body>
+</html> 
